@@ -12,7 +12,8 @@
 		"gulp": "gulp",
 		"pushLDBtoYML": "node ./tools/pushLDBtoYML.mjs",
 		"pullYMLtoLDB": "node ./tools/pullYMLtoLDB.mjs",
-		"prepare": "husky"
+		"prepare": "husky",
+		"test-typings": "tsd"
 	},
 	"browserslist": [
 		"last 3 versions"
@@ -37,5 +38,7 @@
 	"dependencies": {
 		"animate.css": "^4.1.1",
 		"rpg-awesome": "^0.2.0"
-	}
+	},
+	"types": "types"
 }
+
