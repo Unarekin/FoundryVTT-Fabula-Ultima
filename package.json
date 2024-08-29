@@ -13,7 +13,7 @@
 		"pushLDBtoYML": "node ./tools/pushLDBtoYML.mjs",
 		"pullYMLtoLDB": "node ./tools/pullYMLtoLDB.mjs",
 		"prepare": "husky",
-		"test-typings": "tsd"
+		"test-types": "tsd"
 	},
 	"browserslist": [
 		"last 3 versions"
