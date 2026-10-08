@@ -148,21 +148,18 @@ jobs:
                   tag: ${{ github.event.release.tag_name }}
                   body: ${{ github.event.release.body }}
 
-            - name: Minimum Version
-              id: minimum-version
-              run: cat system.json | echo minimumCompat=`jq -r ".compatability.minimum"` >> "$GITHUB_OUTPUT"
-            - name: Maximum Version
-              id: maximum-version
-              run: cat system.json | echo maximumCompat=`jq -r ".compatability.maximum"` >> "$GITHUB_OUTPUT"
-            - name: Verified Version
-              id: verified-version
-              run: cat system.json | echo verifiedCompat=`jq -r ".compatability.verified"` >> "$GITHUB_OUTPUT"
+            - name: Compatability Versions
+              id: compatibility
+              run: |
+                  cat system.json | echo minimum=`jq -r ".compatibility.minimum"` >> "$GITHUB_OUTPUT"
+                  cat system.json | echo maximum=`jq -r ".compatibility.maximum"` >> "$GITHUB_OUTPUT"
+                  cat system.json | echo verified=`jq -r ".compatibility.verified"` >> "$GITHUB_OUTPUT"
             - name: Output Test
               id: output-test
               run: |
-                  echo "Minimum: ${{steps.minimum-version.outputs.minimumCompat}}"
-                  echo "Maximum: ${{steps.maximum-version.outputs.maximumCompat}}"
-                  echo "Verified: ${{steps.verified-version.outputs.verifiedCompat}}"
+                  echo "Minimum: ${{steps.compatibility.outputs.minimum}}"
+                  echo "Maximum: ${{steps.compatibility.outputs.maximum}}"
+                  echo "Verified: ${{steps.compatibility.outputs.verified}}"
 
             # Publish the new version to the FoundryVTT package registry.
             - name: Publish to FoundryVTT
