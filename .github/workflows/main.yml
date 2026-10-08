@@ -154,6 +154,9 @@ jobs:
                   cat system.json | echo minimumCompat=`jq -r ".compatability.minimum"` >> "$GITHUB_OUTPUT"
                   cat system.json | echo verifiedCompat = `jq -r ".compatability.verified"` >> "$GITHUB_OUTPUT"
                   cat system.json | echo maximumCompat = `jq -r ".compatability.maximum"` >> "$GITHUB_OUTPUT"
+            - name: Output Test
+              id: output-test
+              run: |
                   echo "Minimum: ${{steps.compatability.outputs.minimum}}"
                   echo "Maximum: ${{steps.compatability.outputs.maximum}}"
                   echo "Verified: ${{steps.compatability.outputs.verified}}"
