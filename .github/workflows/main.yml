@@ -163,7 +163,7 @@ jobs:
                     --header "Authorization: ${FVTT_TOKEN}" \
                     --header 'Content-Type: application/json' \
                     --data "{
-                      \"id\": \"projectfu\",
+                      \"id\": \"sprite-shadows\",
                       \"dry-run\": true,
                       \"release\": {
                         \"version\": \"${VERSION}\",
