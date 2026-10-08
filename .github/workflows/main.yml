@@ -178,7 +178,7 @@ jobs:
                         \"notes\": \"${NOTES}\",
                         \"compatibility\": {
                           \"minimum\": \"${{steps.compatibility.outputs.minimum}}\",
-                          \"maximum\": \"${{steps.compatibility.outputs.verified}}\"
+                          \"maximum\": \"${{steps.compatibility.outputs.verified}}\",
                           \"verified\": \"${{steps.compatibility.outputs.maximum}}\"
                         }
                       }
