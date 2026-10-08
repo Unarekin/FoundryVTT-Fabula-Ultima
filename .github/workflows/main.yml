@@ -156,6 +156,7 @@ jobs:
                   VERSION: ${{ steps.get_version.outputs.version-without-v }}
                   MANIFEST: 'https://github.com/${{ github.repository }}/releases/download/${{ github.event.release.tag_name }}/system.json'
                   NOTES: 'https://github.com/${{ github.repository }}/releases/tag/${{ github.event.release.tag_name }}'
+              # TODO: Remove dry-run
               run: |
                   curl -X POST \
                     'https://foundryvtt.com/_api/packages/release_version/' \
@@ -163,6 +164,7 @@ jobs:
                     --header 'Content-Type: application/json' \
                     --data "{
                       \"id\": \"projectfu\",
+                      \"dry-run\": true,
                       \"release\": {
                         \"version\": \"${VERSION}\",
                         \"manifest\": \"${MANIFEST}\",
